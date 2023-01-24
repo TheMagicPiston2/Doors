@@ -1,0 +1,7 @@
+local Player = game.Players.LocalPlayer
+repeat wait() until Player.Character
+wait(2)
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+wait(31)
+local  amognus = "fee7937e-5dc7-449f-9d5a-3b2bae378880"
+game:GetService("TeleportService"):TeleportToPlaceInstance(6839171747, amognus, game.Players.LocalPlayer)
