@@ -1,0 +1,3 @@
+game.Lighting.FogEnd = "75"
+game.Lighting.FogStart = "10"
+game.Lighting.FogColor = Color3.fromRGB(0, 0, 0)
