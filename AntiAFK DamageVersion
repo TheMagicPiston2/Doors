@@ -1,0 +1,3 @@
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+loadstring(game:HttpGet("https://github.com/PABMAXICHAC/doors-monsters-scripts/raw/main/timer_for_damage"))()
+end)
