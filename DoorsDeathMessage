@@ -1,0 +1,14 @@
+-- DEATH MESSAGE AND ENTITY NAME
+local Dialog = {"Death message 1", "Death message 2"} -- Custom death message goes here
+local EntityName = "Entity Name" -- Custom entity name goes here
+
+-- MAIN SCRIPT BELOW - DO NOT EDIT
+local Players = game:GetService("Players")
+local RS = game:GetService("ReplicatedStorage")
+local Player = Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Human = Character:WaitForChild("Humanoid")
+local Camera = workspace.CurrentCamera
+Human.Health = 0
+RS.GameStats["Player_".. Player.Name].Total.DeathCause.Value = EntityName
+firesignal(RS.Bricks.DeathHint.OnClientEvent, Dialog)
