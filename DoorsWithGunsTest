@@ -1,0 +1,87 @@
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local char = player.Character
+
+local function superguns(v)
+    if v:FindFirstChild("Setting") then
+        local settings = require(v.Setting[1])
+        settings.Auto = true
+        settings.FireRate= 0
+        settings.Recoil = 0
+        settings.BaseDamage = math.huge
+        settings.Ammo = math.huge
+        settings.AmmoPerMag = math.huge
+        settings.MaxAmmo = math.huge
+        settings.Spread = 0
+        settings.CrossSize = 1
+        settings.SelfDamage = false
+        settings.MaxHeat = math.huge
+        settings.ChargingTime = 0
+        settings.CameraRecoilingEnabled = false
+        settings.MinigunEnabled = false
+        settings.SelfKnockback = false
+        settings.ReloadTime = 0
+        settings.ReloadAnimationSpeed = 0
+        settings.EquippedAnimationSpeed = 2
+        settings.Knockback = 5
+        settings.BulletPerBurst = math.huge
+        settings.BurstRate = 0
+        settings.PreShotgunReloadSpeed = 0
+        settings.PreShotgunReloadAnimationSpeed = 0
+        settings.ShotgunClipinAnimationSpeed = 0
+	    settings.ShellClipinSpeed = 0
+        print("modded "..tostring(v))
+    end
+end
+
+local function medigun(v)
+    if v:FindFirstChild("Setting") then
+        local settings = require(v.Setting[1])
+        settings.Auto = true
+        settings.FireRate= 0.09
+        settings.Recoil = 0
+        settings.BaseDamage = -0.2
+        settings.Ammo = math.huge
+        settings.AmmoPerMag = math.huge
+        settings.MaxAmmo = math.huge
+        settings.Spread = 0
+        settings.CrossSize = 1
+        settings.SelfDamage = false
+        settings.MaxHeat = math.huge
+        settings.ChargingTime = 0
+        settings.CameraRecoilingEnabled = false
+        settings.MinigunEnabled = false
+        settings.SelfKnockback = false
+        settings.ReloadTime = 0
+        settings.ReloadAnimationSpeed = 0
+        settings.EquippedAnimationSpeed = 2
+        settings.BulletPerBurst = math.huge
+        settings.BurstRate = 0
+        settings.Knockback = nil
+        settings.PreShotgunReloadSpeed = 0
+        settings.PreShotgunReloadAnimationSpeed = 0
+        settings.ShotgunClipinAnimationSpeed = 0
+	    settings.ShellClipinSpeed = 0
+        print("modded "..tostring(v))
+    end
+end
+
+if player:WaitForChild("Backpack"):GetChildren() then
+    for i,v in pairs(player:WaitForChild("Backpack"):GetChildren()) do
+        if i == 1 then
+            superguns(v)
+        elseif i == 2 then
+            medigun(v)
+        end
+    end
+end
+
+player.CharacterAdded:Connect(function(character)
+    for i,v in pairs(player:WaitForChild("Backpack"):GetChildren()) do
+        if i == 1 then
+            superguns(v)
+        elseif i == 2 then
+            medigun(v)
+        end
+    end
+end)
